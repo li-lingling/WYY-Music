@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网易云音乐播放器</title>
+  <link rel="stylesheet" href="css/reset.min.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- 头部 -->
+    <header class="header-box">
+      <div class="base">
+        <img src="images/109951166004602570.jpeg" alt="">
+        <span>你知道这首歌居然被这么评论？</span>
+      </div>
+      <span class="base-right">打开看看</span>
+    </header>
+
+    <!-- 内容 -->
+    <div class="cover">
+      <div class="wrapper">
+        <div class="outer">
+        </div>
+      </div>
+      <div class="inner"></div>
+    </div>
+
+    <!-- 歌词 -->
+    <main class="main-box">
+      <div class="wrapper1">
+        <p class="active">风吹过八千里-苏星婕</p>
+        <p>作词：巴欧特</p>
+        <p>作曲：Moni鱼子酱</p>
+      </div>
+    </main>
+
+    <!-- 尾部 -->
+    <footer class="footer-box">
+      <div class="bar">
+        <span class="time current">00:00</span>
+        <div class="progress">
+          <div class="already"></div>
+        </div>
+        <span class="time duration">00:00</span>
+      </div>
+    </footer>
+
+    <footer class="fotter-box">
+      <div class="fotter-box-item item1">打 开</div>
+      <div class="fotter-box-item item2">下 载</div>
+    </footer>
+
+    <!-- 其他 -->
+    <div class="mark-image"></div>
+    <div class="marl-overlay"></div>
+    <div class="loading-box">
+      <div class="content">
+        <img src="images/loading.gif" alt="">
+        <span>嘿～看什么看，等一会就好了，着什么急...</span>
+      </div>
+    </div>
+    <audio src="" id="audioBox" preload="metadata"></audio>
+  </div>
+  <script>
+    /* 动态计算rem的换算比例 */
+    (function () {
+      const app = document.querySelector('#app'),
+        HTML = document.documentElement
+      const computed = function computed() {
+        let orien = Math.abs(window.orientation)
+        if (orien === 90) {
+          //切换到横屏
+          alert('横屏体验不佳，请您切换到竖屏')
+          app.style.display = 'none'
+          return
+        }
+        //当前是竖屏
+        app.style.display = 'block'
+        //计算rem的换算比例
+        let deviceW = HTML.clientWidth,
+          designW = 375,
+          initialRatio = 100;
+        if (deviceW > 540) deviceW = 540
+        let currentRatio = deviceW / designW * initialRatio
+        HTML.style.fontSize = currentRatio + 'px'
+      };
+      computed();
+      window.addEventListener('resize', computed);
+      //基于 resize 代替 orientationchange 事件，这样可以适配模拟器中，设备的切换场景
+    })();
+  </script>
+  <script src="js/api.js"></script>
+  <script src="js/fastclick.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+html {
+  font-size: 100px;
+}
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+}
+#app {
+  max-width: 540px;
+  margin: 0 auto;
+  font-size: 0.14rem;
+  position: relative;
+  /*  background: url(/images/109951167086636585.jpeg) no-repeat; */
+  background-size: 100% 100%;
+}
+.header-box,
+.footer-box,
+.main-box {
+  box-sizing: border-box;
+  height: 1rem;
+  overflow: hidden;
+}
+/* 头部 */
+.header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.15rem;
+  top: 0;
+  height: 0.5rem;
+  box-sizing: border-box;
+  position: relative;
+  color: #fff;
+}
+.header-box .base {
+  flex-grow: 1;
+  display: flex;
+}
+.header-box .base img {
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+}
+.header-box .base span {
+  display: block;
+  height: 0.28rem;
+  line-height: 0.28rem;
+  padding-left: 0.14rem;
+  font-size: 0.12rem;
+}
+.header-box .base-right {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  text-align: center;
+  border: 1px solid #969595;
+  margin-left: 0.3rem;
+  font-size: 0.12rem;
+  border-radius: 0.15rem;
+}
+.header-box::after {
+  content: "";
+  display: block;
+  width: 90%;
+  height: 0.01rem;
+  background-color: #969595;
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+}
+/* 内容 */
+.cover {
+  width: 2.48rem;
+  height: 2.48rem;
+  margin: 0.2rem auto;
+  position: relative;
+}
+.cover .wrapper {
+  width: 100%;
+  height: 100%;
+  background: url(../images/d7e4e3a244701ee85fecb5d4f6b5bd57.png) no-repeat;
+  background-size: contain;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+.cover .wrapper .outer {
+  width: 1.84rem;
+  height: 1.84rem;
+  line-height: 1.84rem;
+  background: url(../images/109951167086636585.jpeg) no-repeat;
+  background-size: contain;
+  /*  margin: 0 auto;
+      margin-top: 0.32rem; */
+  position: absolute;
+  top: 0.32rem;
+  left: 0.32rem;
+  z-index: -1;
+  border-radius: 0.92rem;
+}
+.cover .wrapper.move {
+  animation: musicMove 7s linear 0s infinite both;
+}
+.cover .inner {
+  position: absolute;
+  top: 0.96rem;
+  left: 0.96rem;
+  z-index: 2;
+  width: 0.56rem;
+  height: 0.56rem;
+  background: url(../images/1.png) no-repeat;
+  background-size: contain;
+}
+@keyframes musicMove {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* 歌词 */
+.main-box {
+  width: 100%;
+  height: 2rem;
+  text-align: center;
+  color: #fff;
+}
+.main-box .wrapper p {
+  font-size: 0.15rem;
+  padding: 0.02rem;
+}
+/* 通用样式 */
+/* 歌词区域样式 */
+.main-box .wrapper1 {
+  transform: translateY(0);
+  transition: transform 0.3s;
+}
+.main-box .wrapper1 p {
+  height: 0.5rem;
+  line-height: 0.5rem;
+  text-align: center;
+  font-size: 0.15rem;
+  color: rgba(255, 255, 255, 0.649);
+}
+.main-box .wrapper1 p.active {
+  font-size: 0.18rem;
+  color: red;
+  transition: color 0.3s;
+}
+/* 尾部 */
+.fotter-box {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 0.42rem;
+  position: absolute;
+  bottom: 0.3rem;
+}
+.fotter-box .fotter-box-item {
+  width: 1.735rem;
+  height: 0.42rem;
+  line-height: 0.42rem;
+  text-align: center;
+  border: 1px solid red;
+  border-radius: 0.21rem;
+  font-size: 0.16rem;
+}
+.fotter-box .item1 {
+  color: red;
+}
+.fotter-box .item2 {
+  color: #fff;
+  background-color: red;
+}
+.footer-box {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+}
+.footer-box .bar {
+  display: flex;
+  align-items: center;
+}
+.footer-box .bar .time {
+  width: 0.4rem;
+  line-height: 0.46rem;
+  text-align: center;
+  font-size: 0.12rem;
+  color: rgba(255, 255, 255, 0.649);
+}
+.footer-box .bar .progress {
+  position: relative;
+  flex-grow: 1;
+  height: 0.02rem;
+  background: rgba(255, 255, 255, 0.649);
+}
+.footer-box .bar .progress .already {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(19, 219, 8, 0.7);
+}
+/* Loading层 */
+.loading-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-box .content img,
+.loading-box .content span {
+  display: block;
+}
+.loading-box .content img {
+  margin: 0 auto;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+.loading-box .content span {
+  margin-top: 0.1rem;
+  color: #1989fa;
+}
+/* 背景层 */
+.marl-overlay,
+.mark-image {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+}
+.mark-image {
+  z-index: -2;
+  background: url('/images/背景图片.jpeg') no-repeat;
+  background-size: cover;
+  filter: blur(6px);
+}
+.marl-overlay {
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.5);
+}
